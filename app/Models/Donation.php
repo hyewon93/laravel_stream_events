@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Donation extends Model
 {
@@ -11,4 +13,21 @@ class Donation extends Model
 
     protected $table = 'donations';
     protected $primaryKey = 'id';
+
+    public static function getTotalRevenue() 
+    {
+        try {
+            $totalRevenue = Donation::select(DB::raw('SUM(amount) as revenue, currency'))
+                                ->where('created_at', '>', now()->subDays(30)->endOfDay())
+                                ->groupBy('currency')
+                                ->get();
+                                
+        } catch (Exception $e) {
+            report($e);
+
+            return 0;
+        }
+
+        return $totalRevenue;
+    }
 }

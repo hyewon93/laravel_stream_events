@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,4 +12,22 @@ class Follower extends Model
 
     protected $table = 'followers';
     protected $primaryKey = 'id';
+
+    public static function getTotalFollowers() 
+    {
+        $totalFollowers = Follower::where('created_at', '>', now()->subDays(30)->endOfDay())->get();
+        $totalFollowersCount = count($totalFollowers);
+
+        try {
+            $totalFollowers = Follower::where('created_at', '>', now()->subDays(30)->endOfDay())->get();
+            $totalFollowersCount = count($totalFollowers);
+
+        } catch (Exception $e) {
+            report($e);
+
+            return 0;
+        }
+
+        return $totalFollowersCount;
+    }
 }

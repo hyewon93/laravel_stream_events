@@ -1,0 +1,53 @@
+.padding-1rem {
+    padding: 1rem;
+}
+
+.margin-bottom-1rem {
+    margin-bottom: 1rem;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.dashboard-section {
+    margin-bottom: 1rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+}
+
+.grid-item {
+    padding: 1rem;
+}
+
+.grid-item-inner {
+    padding: 2rem 1rem;
+}
+
+.section-revenue {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.section-followers {
+    font-weight: bold;
+    text-align: left;
+    font-size: 3rem;
+}
+
+.total-revenue {
+    margin-left: auto;
+}
+
+.top-item-lanking {
+    font-weight: bold;
+    padding-right: 1rem;
+}
+
+.top-item-count {
+    margin-left: auto;
+}
