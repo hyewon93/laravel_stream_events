@@ -23,7 +23,7 @@ class MerchSale extends Model
                         ->groupBy('item_name')
                         ->take(3)
                         ->get();
-                        
+
         } catch (Exception $e) {
             report($e);
 
@@ -46,5 +46,20 @@ class MerchSale extends Model
         }
 
         return $totalRevenue[0]->revenue;
+    }
+
+    public static function updateRead($id) 
+    {
+        try {
+            $result = MerchSale::where('id', $id)
+                                ->update(['read' => 1]);
+
+        } catch (Exception $e) {
+            report($e);
+
+            return 0;
+        }
+        
+        return $result;
     }
 }

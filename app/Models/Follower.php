@@ -30,4 +30,19 @@ class Follower extends Model
 
         return $totalFollowersCount;
     }
+
+    public static function updateRead($id) 
+    {
+        try {
+            $result = Follower::where('id', $id)
+                                ->update(['read' => 1]);
+
+        } catch (Exception $e) {
+            report($e);
+
+            return 0;
+        }
+        
+        return $result;
+    }
 }

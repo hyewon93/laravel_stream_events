@@ -25,6 +25,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/history', [DashboardController::class, 'getHistory'])->name('dashboard.history');
+    Route::post('/dashboard/update', [DashboardController::class, 'updateRead'])->name('dashboard.update');
 });
 
 Route::get('auth/google', [GoogleController::class, 'signInwithGoogle']);

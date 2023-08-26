@@ -45,4 +45,19 @@ class Subscriber extends Model
 
         return $totalRevenue;
     }
+
+    public static function updateRead($id) 
+    {
+        try {
+            $result = Subscriber::where('id', $id)
+                                ->update(['read' => 1]);
+
+        } catch (Exception $e) {
+            report($e);
+
+            return 0;
+        }
+        
+        return $result;
+    }
 }

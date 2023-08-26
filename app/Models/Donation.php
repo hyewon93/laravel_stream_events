@@ -21,7 +21,7 @@ class Donation extends Model
                                 ->where('created_at', '>', now()->subDays(30)->endOfDay())
                                 ->groupBy('currency')
                                 ->get();
-                                
+
         } catch (Exception $e) {
             report($e);
 
@@ -29,5 +29,20 @@ class Donation extends Model
         }
 
         return $totalRevenue;
+    }
+
+    public static function updateRead($id) 
+    {
+        try {
+            $result = Donation::where('id', $id)
+                                ->update(['read' => 1]);
+
+        } catch (Exception $e) {
+            report($e);
+
+            return 0;
+        }
+        
+        return $result;
     }
 }

@@ -51,3 +51,26 @@
 .top-item-count {
     margin-left: auto;
 }
+
+.history-row {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.history-user-name {
+    font-style: italic;
+    font-family: revert;
+}
+
+.history-donation-message {
+    padding-left: 2rem;
+
+}
+
+.read {
+    cursor: unset !important;
+    font-weight: unset !important;
+    color: #959393 !important;
+}
