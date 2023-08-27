@@ -32,8 +32,8 @@ return [
     ],
 
     'google' => [
-        'client_id' => '23500253968-oa2a45979ehn62hkbn1l4ebsvcg3hsul.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'http://localhost/laravel_stream_events/public/callback/google',
+        'client_id' => '%%CLIENT_ID%%',
+        'client_secret' => '%%CLIENT_SECRET%%',
+        'redirect' => '%%REDIRECT_URL%%',
     ]
 ];
